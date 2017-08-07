@@ -1,5 +1,4 @@
 require "nyc_subway_status/version"
 
-class UI
-
+class Scraper
 end
