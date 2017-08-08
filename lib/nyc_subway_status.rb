@@ -1,5 +1,5 @@
 require "nyc_subway_status/version"
 
-class UI
+module NYCSubwayStatus
 
 end
