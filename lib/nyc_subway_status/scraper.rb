@@ -1,4 +1,5 @@
 require "nyc_subway_status/version"
 
-class Scraper
+class NYC_Subway_Status::Scraper
+
 end
