@@ -1,5 +1,2 @@
-require "nyc_subway_status/version"
-
-module NYCSubwayStatus
-
-end
+require_relative './nyc_subway_status/version'
+require_relative './nyc_subway_status/cli'
