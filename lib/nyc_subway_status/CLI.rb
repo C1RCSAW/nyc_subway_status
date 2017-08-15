@@ -3,22 +3,11 @@ class NYCSubwayStatus::CLI
   def call
     list_trains
     train_details
-    goodbye
   end
 
   def list_trains
     puts "NYC subway Status"
-    puts <<-DOC.gsub /^\s*/, ''
-    1. 1,2,3
-    2. 4,5,6
-    3. 7
-    4. A,C,E
-    5. B,D,F,M
-    6. G
-    7. N,Q,R,W
-    8. S
-    9. SIR
-    DOC
+    @lines = NYCSubwayStatus::Line.all
   end
 
   def train_details
@@ -49,8 +38,10 @@ class NYCSubwayStatus::CLI
         puts "SIR"
       when "list"
         list_trains
+      when "q"
+        goodbye
       else
-        puts "not an option, enter a valid number or 'list' to view options and try again "
+        puts "not an option please try again "
       end
     end
   end

@@ -1,7 +1,20 @@
-require "nyc_subway_status/version"
-
-class NYCSubwayStatus::line
+class NYCSubwayStatus::Line
   attr_accessor :name, :status, :url
+
+  def self.all
+    puts <<-DOC.gsub /^\s*/, ''
+    1. 1,2,3
+    2. 4,5,6
+    3. 7
+    4. A,C,E
+    5. B,D,F,M
+    6. G
+    7. N,Q,R,W
+    8. S
+    9. SIR
+    DOC
+
+  end
 
 end
 
