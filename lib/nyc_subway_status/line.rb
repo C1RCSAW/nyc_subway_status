@@ -1,18 +1,7 @@
 class NYCSubwayStatus::Line
-  attr_accessor :name, :status
+  attr_accessor :name, :status, :details
 
   def self.all
-    puts <<-DOC.gsub /^\s*/, ''
-    1. 1,2,3
-    2. 4,5,6
-    3. 7
-    4. A,C,E
-    5. B,D,F,M
-    6. G
-    7. N,Q,R,W
-    8. S
-    9. SIR
-    DOC
 
     line_1 = self.new
     line_1.name = "1,2,3"

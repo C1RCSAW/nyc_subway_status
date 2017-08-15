@@ -8,13 +8,16 @@ class NYCSubwayStatus::CLI
   def list_trains
     puts "NYC subway Status"
     @lines = NYCSubwayStatus::Line.all
+    @lines.each.with_index(1) do |line, i|
+      puts "#{i}. #{line.name} - #{line.status}"
+    end
   end
 
   def train_details
 
     input = nil
     while input != "q"
-      puts "enter a number for a subway line to display status information: or 'l' to see the list of subway lines: or 'q' to quit:"
+      puts "enter a number for a subway line to display status details: or 'l' to see the list of subway lines: or 'q' to quit:"
 
       input = gets.strip.downcase
 
