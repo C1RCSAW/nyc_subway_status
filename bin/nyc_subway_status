@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
-require './lib/nyc_subway_status'
+require "bundler/setup"
+require "nyc_subway_status"
 
 NYCSubwayStatus::CLI.new.call #encapsulation

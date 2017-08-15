@@ -5,13 +5,13 @@ require "nyc_subway_status/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "nyc_subway_status"
-  spec.version       = NycSubwayStatus::VERSION
+  spec.version       = NYCSubwayStatus::VERSION
   spec.authors       = ["Brian Bytnar"]
   spec.email         = ["bytnarb2@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "MTA subway status"
+  spec.description   = "CLI ruby gem that checks the current status of MTA subway lines."
+  spec.homepage      = "https://github.com/C1RCSAW/nyc_subway_status"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -33,4 +33,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.15"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+
+  spec.add_dependency "nokogiri"
 end

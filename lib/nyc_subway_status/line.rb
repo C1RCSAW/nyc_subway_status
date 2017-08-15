@@ -16,6 +16,10 @@ class NYCSubwayStatus::Line
 
   end
 
+  # http://www.mta.info/
+
+  #subwayDiv
+
 end
 
 # class DailyDeal::Deal
