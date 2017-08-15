@@ -17,6 +17,10 @@ class NYCSubwayStatus::CLI
       puts "enter a number for a subway line to display status information: or 'l' to see the list of subway lines: or 'q' to quit:"
 
       input = gets.strip.downcase
+
+
+      # if input.to_i > 0
+      #
       case input
       when "1"
         puts "status information for 1,2,3 subway line"
@@ -35,7 +39,7 @@ class NYCSubwayStatus::CLI
       when "8"
         puts "status information for S subway line"
       when "9"
-        puts "SIR"
+        puts "status infomration for SIR subway line"
       when "l"
         list_trains
       when "q"

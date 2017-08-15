@@ -1,5 +1,5 @@
 class NYCSubwayStatus::Line
-  attr_accessor :name, :status, :url
+  attr_accessor :name, :status
 
   def self.all
     puts <<-DOC.gsub /^\s*/, ''
@@ -14,11 +14,15 @@ class NYCSubwayStatus::Line
     9. SIR
     DOC
 
+    line_1 = self.new
+    line_1.name = "1,2,3"
+    line_1.status = "Good Service"
+
   end
 
   # http://www.mta.info/
 
-  #subwayDiv
+  # #subwayDiv
 
 end
 
