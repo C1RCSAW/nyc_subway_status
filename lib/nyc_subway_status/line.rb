@@ -18,6 +18,44 @@ class NYCSubwayStatus::Line
     line_1.name = "1,2,3"
     line_1.status = "Good Service"
 
+    line_2 = self.new
+    line_2.name = "4,5,6"
+    line_2.status = "Good Service"
+
+    line_3 = self.new
+    line_3.name = "7"
+    line_3.status = "Good Service"
+
+    line_4 = self.new
+    line_4.name = "A,C,E"
+    line_4.status = "Good Service"
+
+    line_5 = self.new
+    line_5.name = "B,D,F,M"
+    line_5.status = "Good Service"
+
+    line_6 = self.new
+    line_6.name = "G"
+    line_6.status = "Good Service"
+
+    line_7 = self.new
+    line_7.name = "N,Q,R,W"
+    line_7.status = "Good Service"
+
+    line_7 = self.new
+    line_7.name = "N,Q,R,W"
+    line_7.status = "Good Service"
+
+    line_8 = self.new
+    line_8.name = "S"
+    line_8.status = "Good Service"
+
+    line_9 = self.new
+    line_9.name = "SIR"
+    line_9.status = "Good Service"
+
+    [line_1, line_2, line_3, line_4, line_5, line_6, line_7, line_8, line_9]
+
   end
 
   # http://www.mta.info/
