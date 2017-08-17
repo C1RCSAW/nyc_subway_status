@@ -22,7 +22,7 @@ class NYCSubwayStatus::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
-        puts @lines[input.to_i-1]
+        puts @lines[input.to_i-1].status
       elsif input == "l"
         list_trains
       elsif input == "q"
