@@ -1,6 +1,39 @@
 class NYCSubwayStatus::Line
   attr_accessor :name, :status, :details
 
+  # URL = 'http://www.mta.info/?un_jtt_v_status=subwayTab%27'
+
+  URL = 'http://web.mta.info/status/serviceStatus.txt'
+
+  def self.get_page(url=URL)
+    @lines = []
+    @doc = Nokogiri::HTML(open(url))
+    @doc.xpath("//name").collect do |name|
+      @lines << name.children.text
+    end
+    binding.pry
+    # lines = []
+    # top_page.css("#subwayDiv").each do |entry|
+    #   entry.css("")
+  end
+
+  # class Scraper
+  #
+  #   def self.scrape_index_page(index_url)
+  #     index_page = Nokogiri::HTML(open(index_url))
+  #     students = []
+  #     index_page.css(".roster-cards-container").each do |card|
+  #       card.css(".student-card a").each do |student|
+  #         student_name = student.css(".student-name").text
+  #         student_location = student.css(".student-location").text
+  #         student_profile_link = "#{student.attr("href")}"
+  #         students << {name: student_name, location: student_location, profile_url: student_profile_link}
+  #       end
+  #     end
+  #     students
+  #   end
+  #
+
   def self.all
 
     line_1 = self.new
@@ -28,22 +61,26 @@ class NYCSubwayStatus::Line
     line_6.status = "Good Service"
 
     line_7 = self.new
-    line_7.name = "N,Q,R,W"
-    line_7.status = "Good Service"
-
-    line_7 = self.new
-    line_7.name = "N,Q,R,W"
+    line_7.name = "J,Z"
     line_7.status = "Good Service"
 
     line_8 = self.new
-    line_8.name = "S"
+    line_8.name = "L"
     line_8.status = "Good Service"
 
     line_9 = self.new
-    line_9.name = "SIR"
+    line_9.name = "N,Q,R,W"
     line_9.status = "Good Service"
 
-    [line_1, line_2, line_3, line_4, line_5, line_6, line_7, line_8, line_9]
+    line_10 = self.new
+    line_10.name = "S"
+    line_10.status = "Good Service"
+
+    line_11 = self.new
+    line_11.name = "SIR"
+    line_11.status = "Good Service"
+
+    [line_1, line_2, line_3, line_4, line_5, line_6, line_7, line_8, line_9, line_10, line_11]
 
   end
 
