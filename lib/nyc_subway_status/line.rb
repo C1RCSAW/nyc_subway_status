@@ -7,10 +7,13 @@ class NYCSubwayStatus::Line
 
   def self.get_page(url=URL)
     @lines = []
+    names = []
     @doc = Nokogiri::HTML(open(url))
     @doc.xpath("//name").collect do |name|
-      @lines << name.children.text
+      names << name.children.text
     end
+
+    @lines << names[0..10]
     binding.pry
     # lines = []
     # top_page.css("#subwayDiv").each do |entry|

@@ -6,7 +6,9 @@ class NYCSubwayStatus::CLI
   end
 
   def list_trains
+    puts ">>>>>>>>>>>>>>>>>"
     puts "NYC subway Status"
+    puts "<<<<<<<<<<<<<<<<<"
     @lines = NYCSubwayStatus::Line.all
     @lines.each.with_index(1) do |line, i|
       puts "#{i}. #{line.name} - #{line.status}"
