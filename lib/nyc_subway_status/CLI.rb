@@ -6,7 +6,7 @@ class NYCSubwayStatus::CLI
   end
 
   def list_trains
-    puts ">>>>>>>>>>>>>>>>>"
+    puts ">>>>>>>>>>>>>>>>>" #add colorize gem!
     puts "NYC subway Status"
     puts "<<<<<<<<<<<<<<<<<"
     @lines = NYCSubwayStatus::Line.all
@@ -23,7 +23,7 @@ class NYCSubwayStatus::CLI
 
       input = gets.strip.downcase
 
-      if input.to_i > 0
+      if input.to_i > 0 && input.to_i < @lines.length + 1
         puts @lines[input.to_i-1].status
       elsif input == "l"
         list_trains

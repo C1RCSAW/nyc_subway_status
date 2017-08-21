@@ -1,19 +1,16 @@
 class NYCSubwayStatus::Line
   attr_accessor :name, :status, :details
 
-  # URL = 'http://www.mta.info/?un_jtt_v_status=subwayTab%27'
-
   URL = 'http://web.mta.info/status/serviceStatus.txt'
 
-  def self.get_page(url=URL)
-    @lines = []
+  def self.get_names(url=URL)
     names = []
     @doc = Nokogiri::HTML(open(url))
     @doc.xpath("//name").collect do |name|
       names << name.children.text
     end
 
-    @lines << names[0..10]
+    linez = names[0..10]
     binding.pry
     # lines = []
     # top_page.css("#subwayDiv").each do |entry|
