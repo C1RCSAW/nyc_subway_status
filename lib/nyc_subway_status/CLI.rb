@@ -8,6 +8,7 @@ class NYCSubwayStatus::CLI
   def list_trains
     puts ">>>>>>>>>>>>>>>>>" #add colorize gem!
     puts "NYC subway Status"
+    puts Time.now
     puts "<<<<<<<<<<<<<<<<<"
     @lines = NYCSubwayStatus::Line.all
     @lines.each.with_index(1) do |line, i|
