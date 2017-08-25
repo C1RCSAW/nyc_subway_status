@@ -6,14 +6,16 @@ class NYCSubwayStatus::CLI
   end
 
   def list_trains
-    puts ">>>>>>>>>>>>>>>>>" #add colorize gem!
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>".yellow #add colorize gem!
     puts "NYC subway Status"
-    puts Time.now
-    puts "<<<<<<<<<<<<<<<<<"
+    puts "<<<<<<<<<<<<<<<<<<<<<<<<<".yellow
     @lines = NYCSubwayStatus::Line.all
     @lines.each.with_index(1) do |line, i|
       puts "#{i}. #{line.name} - #{line.status}"
     end
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>".yellow
+    puts Time.now
+    puts "<<<<<<<<<<<<<<<<<<<<<<<<<".yellow
   end
 
   def train_details
@@ -25,13 +27,13 @@ class NYCSubwayStatus::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0 && input.to_i < @lines.length + 1
-        puts @lines[input.to_i-1].status
+        puts @lines[inpu1t.to_i-1].status
       elsif input == "l"
         list_trains
       elsif input == "q"
         goodbye
       else
-        puts "not an option please try again "
+        puts "not an option please try again".red
       end
     end
   end

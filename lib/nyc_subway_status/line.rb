@@ -3,18 +3,27 @@ class NYCSubwayStatus::Line
 
   URL = 'http://web.mta.info/status/serviceStatus.txt'
 
-  def self.get_names(url=URL)
+  def self.get_lines(url=URL)
     names = []
     @doc = Nokogiri::HTML(open(url))
     @doc.xpath("//name").collect do |name|
       names << name.children.text
     end
+    statuz = []
+    @doc.xpath("//status").collect do |status|
+      statuz << status.children.text[
+    end
+    details = []
+    @doc.xpath("//text").collect do |detail|
+      details << detail.children.text
+    end
 
-    linez = names[0..10]
+    # linez = names[0..10]
     binding.pry
-    # lines = []
-    # top_page.css("#subwayDiv").each do |entry|
-    #   entry.css("")
+
+    #lines << {name: line_name, status: line_status, details: line_details}
+    #zipped = names.zip(statuz)[0..10]
+    #Hash[zipped]
   end
 
   # class Scraper
