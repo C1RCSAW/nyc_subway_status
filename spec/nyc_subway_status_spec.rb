@@ -1,8 +1,8 @@
 require "spec_helper"
 
-RSpec.describe NycSubwayStatus do
+RSpec.describe NYCSubwayStatus do
   it "has a version number" do
-    expect(NycSubwayStatus::VERSION).not_to be nil
+    expect(NYCSubwayStatus::VERSION).not_to be nil
   end
 
   it "does something useful" do

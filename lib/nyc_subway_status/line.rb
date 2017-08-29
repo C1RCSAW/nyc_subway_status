@@ -1,30 +1,71 @@
 class NYCSubwayStatus::Line
-  attr_accessor :name, :status, :details
+  attr_accessor :name, :status
 
   URL = 'http://web.mta.info/status/serviceStatus.txt'
 
-  def self.get_lines(url=URL)
-    names = []
-    @doc = Nokogiri::HTML(open(url))
-    @doc.xpath("//name").collect do |name|
-      names << name.children.text
-    end
-    statuz = []
-    @doc.xpath("//status").collect do |status|
-      statuz << status.children.text[
-    end
-    details = []
-    @doc.xpath("//text").collect do |detail|
-      details << detail.children.text
-    end
 
-    # linez = names[0..10]
-    binding.pry
+  def self.get_lines(url=URL)
+    doc = Nokogiri::HTML(open(url))
+    lines = []
+    doc.xpath("//line")[0..10].each do |l|
+      l.xpath("//name")[0..10].each do |n|
+        lines << {name: n.children.text}
+      end
+      l.xpath("//status")[0..10].each do |s|
+        lines << {status: s.children.text}
+      end
+    end
+      binding.pry
+  end
+
+  # def self.get_names(url=URL)
+  #   doc = Nokogiri::HTML(open(url))
+  #   names = []
+  #   doc.xpath("//name")[0..10].collect do |n|
+  #     names << n.children.text
+  #   end
+  #   names
+  # end
+  #
+  # def self.get_status(url=URL)
+  #   status = []
+  #   doc = Nokogiri::HTML(open(url))
+  #   doc.xpath("//status")[0..10].collect do |s|
+  #     status << s.children.text
+  #   end
+  #   status
+  # end
+  #
+  # def self.line_data
+  #   get_names
+  #   binding.pry
+  # end
 
     #lines << {name: line_name, status: line_status, details: line_details}
-    #zipped = names.zip(statuz)[0..10]
-    #Hash[zipped]
-  end
+
+  # line_name = n.children.text
+  # line_status = s.children.text
+  # @lines << {name: line_name, status: line_status}
+
+  # def initialize(name, status)
+  #   @names.each do |n|
+  #     self.new.name = n
+  #     all << self
+  #   end
+  # end
+
+
+#http://www.mta.info/status/subway/123
+#http://www.mta.info/status/subway/456
+#http://www.mta.info/status/subway/7
+#http://www.mta.info/status/subway/ACE
+#http://www.mta.info/status/subway/BDFM
+#http://www.mta.info/status/subway/G
+#http://www.mta.info/status/subway/JZ
+#http://www.mta.info/status/subway/L
+#http://www.mta.info/status/subway/NQRW
+#http://www.mta.info/status/subway/S
+#http://www.mta.info/status/subway/SIR
 
   # class Scraper
   #
@@ -92,49 +133,11 @@ class NYCSubwayStatus::Line
     [line_1, line_2, line_3, line_4, line_5, line_6, line_7, line_8, line_9, line_10, line_11]
 
   end
-
-
-
 end
 
-# class DailyDeal::Deal
-#   attr_accessor :name, :price, :availability, :url
-#
-#   def self.today
-#     # Scrape woot and meh and then return deals based on that data
-#     self.scrape_deals
-#   end
-#
-#   def self.scrape_deals
-#     deals = []
-#
-#     deals << self.scrape_woot
-#     deals << self.scrape_meh
-#
-#     deals
-#   end
-#
-#   def self.scrape_woot
-#     doc = Nokogiri::HTML(open("https://woot.com"))
-#
-#     deal = self.new
-#     deal.name = doc.search("h2.main-title").text.strip
-#     deal.price = doc.search("#todays-deal span.price").text.strip
-#     deal.url = doc.search("a.wantone").first.attr("href").strip
-#     deal.availability = true
-#
-#     deal
-#   end
-#
-#   def self.scrape_meh
-#     doc = Nokogiri::HTML(open("https://meh.com"))
-#
-#     deal = self.new
-#     deal.name = doc.search("section.features h2").text.strip
-#     deal.price = doc.search("button.buy-button").text.gsub("Buy it.", "").strip
-#     deal.url = "https://meh.com"
-#     deal.availability = true
-#
-#     deal
-#   end
-# end
+# ___________   _______________________________________^__
+#  ___   ___ |||  ___   ___   ___    ___ ___  |   __  ,----\
+# |   | |   |||| |   | |   | |   |  |   |   | |  |  | |_____\
+# |___| |___|||| |___| |___| |___|  | O | O | |  |  |        \
+#            |||                    |___|___| |  |__|         )
+# ___________|||______________________________|______________/
