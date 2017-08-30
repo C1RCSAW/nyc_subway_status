@@ -13,6 +13,10 @@ class NYCSubwayStatus::Line
     @@all << self
   end
 
+  def self.destroy_all
+    self.all.clear
+  end
+
   def self.get_lines
     (0..get_names.size-1).to_a.each do |i|
       line_name = get_names[i]

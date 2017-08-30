@@ -9,7 +9,9 @@ class NYCSubwayStatus::CLI
     puts ">>>>>>>>>>>>>>>>>>>>>>>>>".yellow #add colorize gem!
     puts "NYC subway Status"
     puts "<<<<<<<<<<<<<<<<<<<<<<<<<".yellow
-    @lines = NYCSubwayStatus::Line.get_lines
+    NYCSubwayStatus::Line.destroy_all
+    NYCSubwayStatus::Line.get_lines
+    @lines = NYCSubwayStatus::Line.all
     @lines.each.with_index(1) do |line, i|
       puts "#{i}. #{line.name} - #{line.status}"
     end
