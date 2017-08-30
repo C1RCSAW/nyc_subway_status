@@ -9,7 +9,7 @@ class NYCSubwayStatus::CLI
     puts ">>>>>>>>>>>>>>>>>>>>>>>>>".yellow #add colorize gem!
     puts "NYC subway Status"
     puts "<<<<<<<<<<<<<<<<<<<<<<<<<".yellow
-    @lines = NYCSubwayStatus::Line.all
+    @lines = NYCSubwayStatus::Line.get_lines
     @lines.each.with_index(1) do |line, i|
       puts "#{i}. #{line.name} - #{line.status}"
     end
@@ -27,7 +27,8 @@ class NYCSubwayStatus::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0 && input.to_i < @lines.length + 1
-        puts @lines[input.to_i-1].status
+        puts @lines[input.to_i-1].details
+        system("open #{@lines[input.to_i-1].details}")
       elsif input == "l"
         list_trains
       elsif input == "q"
