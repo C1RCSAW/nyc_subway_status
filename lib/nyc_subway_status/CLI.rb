@@ -40,7 +40,13 @@ class NYCSubwayStatus::CLI
   end
 
   def goodbye
-    puts "See you later, have a nice ride on the subway!"
+    puts "See you later, have a nice ride on the subway!".yellow
+    puts "___________   ____________________________^__"
+    puts " ___   ___ |||  ___   ___     ___ ___  |   __  ,----\".purple
+    puts "|   | |   |||| |   | |   |   |   |   | |  |  | |_____\".purple
+    puts "|___| |___|||| |___| |___|   | O | O | |  |  |        \".purple
+    puts "           |||               |___|___| |  |__|         )".purple
+    puts "___________|||_________________________|______________/".purple
   end
 
 end

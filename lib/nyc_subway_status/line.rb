@@ -28,17 +28,6 @@ class NYCSubwayStatus::Line
     all
   end
 
-  # def self.get_lines(url=URL)
-  #   doc = Nokogiri::HTML(open(url))
-  #   lines = []
-  #   doc.xpath("//line")[0..10].each do |l|
-  #     l.xpath("//name", "//status")[0..10].collect do |n, s|
-  #       lines << {name: n.children.text, status: s.children.text}
-  #     end
-  #   end
-  #     binding.pry
-  # end
-
   def self.get_names(url=URL)
     doc = Nokogiri::HTML(open(url))
     names = []
@@ -57,35 +46,11 @@ class NYCSubwayStatus::Line
     status
   end
 
-  # line_name = n.children.text
-  # line_status = s.children.text
-  # @lines << {name: line_name, status: line_status}
-
-  # def initialize(name, status)
-  #   @names.each do |n|
-  #     self.new.name = n
-  #     all << self
-  #   end
-  # end
-
-
-#http://www.mta.info/status/subway/123
-#http://www.mta.info/status/subway/456
-#http://www.mta.info/status/subway/7
-#http://www.mta.info/status/subway/ACE
-#http://www.mta.info/status/subway/BDFM
-#http://www.mta.info/status/subway/G
-#http://www.mta.info/status/subway/JZ
-#http://www.mta.info/status/subway/L
-#http://www.mta.info/status/subway/NQRW
-#http://www.mta.info/status/subway/S
-#http://www.mta.info/status/subway/SIR
-
 end
 
-# ___________   _______________________________________^__
-#  ___   ___ |||  ___   ___   ___    ___ ___  |   __  ,----\
-# |   | |   |||| |   | |   | |   |  |   |   | |  |  | |_____\
-# |___| |___|||| |___| |___| |___|  | O | O | |  |  |        \
-#            |||                    |___|___| |  |__|         )
-# ___________|||______________________________|______________/
+___________   ____________________________^__
+ ___   ___ |||  ___   ___     ___ ___  |   __  ,----\
+|   | |   |||| |   | |   |   |   |   | |  |  | |_____\
+|___| |___|||| |___| |___|   | O | O | |  |  |        \
+           |||               |___|___| |  |__|         )
+___________|||_________________________|______________/
