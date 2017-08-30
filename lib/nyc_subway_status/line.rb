@@ -8,19 +8,19 @@ class NYCSubwayStatus::Line
   def self.all
     @@all
   end
-
+  
   def save
     @@all << self
   end
 
   def self.get_lines
-    (0..get_names.size).each do |i|
+    (0..get_names.size-1).to_a.each do |i|
       line_name = get_names[i]
       line_status = get_status[i]
 
-      line = Line.new
-      line.name =  line_name
-      line.venue_name =  line_status
+      line = self.new
+      line.name = line_name
+      line.status = line_status
       line.save
     end
     binding.pry
