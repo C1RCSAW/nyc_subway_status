@@ -7,7 +7,7 @@ class NYCSubwayStatus::CLI
 
   def list_trains
     puts ">>>>>>>>>>>>>>>>>>>>>>>>>".yellow #add colorize gem!
-    puts "NYC subway Status"
+    puts "NYC Subway Status"
     puts "<<<<<<<<<<<<<<<<<<<<<<<<<".yellow
     NYCSubwayStatus::Line.destroy_all
     NYCSubwayStatus::Line.get_lines
@@ -24,7 +24,9 @@ class NYCSubwayStatus::CLI
 
     input = nil
     while input != "q"
-      puts "enter a number for a subway line to display status details: or 'l' to see the list of subway lines: or 'q' to quit:"
+      puts "Enter a number for a subway line to display status details"
+      puts "'l' to refresh the list"
+      puts "'q' to quit:"
 
       input = gets.strip.downcase
 
