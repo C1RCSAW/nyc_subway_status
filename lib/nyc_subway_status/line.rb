@@ -33,8 +33,8 @@ class NYCSubwayStatus::Line
   end
 
   def self.get_names(url=URL)
-    doc = Nokogiri::HTML(open(url))
     names = []
+    doc = Nokogiri::HTML(open(url))
     doc.xpath("//name")[0..10].collect do |n|
       names << n.children.text
     end
