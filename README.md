@@ -1,8 +1,6 @@
 # NycSubwayStatus
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/nyc_subway_status`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to NycSubwayStatus! This Ruby gem is a CLI that runs in the terminal where a user can check the status of all the trains on the NYC MTA subway system. 
 
 ## Installation
 
