@@ -3,6 +3,12 @@ class NYCSubwayStatus::Line
 
   URL = 'http://web.mta.info/status/serviceStatus.txt'
 
+  #(0..10) subway
+  #(11..20) buses
+  #(21..29) bridges
+  #(30..40) Long Island RR
+  #(41..50) Metro North RR
+
   @@all = []
 
   def self.all
