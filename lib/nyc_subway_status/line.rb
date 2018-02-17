@@ -12,6 +12,12 @@ class NYCSubwayStatus::Line
 
   @@all = []
 
+  def initialize(name:, status:, details:)
+    @name = name
+    @status = status
+    @details = details
+  end
+
   def self.all
     @@all
   end
@@ -30,10 +36,7 @@ class NYCSubwayStatus::Line
       line_status = get_status[i]
       line_details = "http://www.mta.info/status/subway/#{get_names[i]}"
 
-      line = self.new
-      line.name = line_name
-      line.status = line_status
-      line.details = line_details
+      line = self.new(name: line_name, status: line_status, details: line_details)
       line.save
     end
     all
